@@ -4,12 +4,12 @@
             <h3 class="box-title">Cycle</h3>
         </div>
         <div class="box-body">
-        <field id="name" label="Name" grid="12 6 4 4" placeholder="Cycle name" type="text"></field>
-            <field id="month" label="Month" grid="12 6 4 4" placeholder="Cycle month" type="number"></field>
-            <field id="year" label="Year" grid="12 6 4 4" placeholder="Cycle year" type="number"></field>
+            <field id="name" label="Name" grid="12 6 4 4" placeholder="Cycle name" type="text" model="bcCtrl.billingCycle.name"></field>
+            <field id="month" label="Month" grid="12 6 4 4" placeholder="Cycle month" type="number" model="bcCtrl.billingCycle.month"></field>
+            <field id="year" label="Year" grid="12 6 4 4" placeholder="Cycle year" type="number" model="bcCtrl.billingCycle.year"></field>
         </div>
         <div class="box-footer">
-            <button class="btn btn-primary">Add</button>
+            <button class="btn btn-primary" ng-click="bcCtrl.create()">Add</button>
             <button class="btn btn-info">Edit</button>
             <button class="btn btn-danger">Delete</button>
             <button class="btn btn-default">Cancel</button>
