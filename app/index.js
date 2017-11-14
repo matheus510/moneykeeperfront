@@ -1,5 +1,5 @@
 angular.module('moneyKeeper', [
-    'ui-router',
+    'ui.router',
     'ngAnimate',
     'toastr'
 ])
