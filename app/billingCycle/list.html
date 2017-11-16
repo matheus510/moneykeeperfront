@@ -9,13 +9,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="billingCycle in bcCtrl.BillingCycles">
+            <tr ng-repeat="billingCycle in bcController.billingCycles">
                 <td>{{ billingCycle.name }}</td>
                 <td>{{ billingCycle.month }}</td>
                 <td>{{ billingCycle.year }}</td>
                 <td class="table-actions">
-                    <button class="btn btn-warning" ng-click="billingCycleCtrl.showTabEdit(billingCycle)"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger" ng-click="billingCycleCtrl.showTabDelete(billingCycle)"><i class="fa fa-trash-o"></i></button>
+                    <button class="btn btn-warning" ng-click="bcController.showTabEdit(billingCycle)"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger" ng-click="bcController.showTabDelete(billingCycle)"><i class="fa fa-trash-o"></i></button>
                 </td>
             </tr>
         </tbody>
