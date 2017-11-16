@@ -1,34 +1,34 @@
 <content-header title="Money Cycle" subtitle="New entrie"></content-header>
 
 <section class="content">
-    <div class="nav-tabs-custom" ng-controller="BillingCycleCtrl as bcCtrl">
+    <div class="nav-tabs-custom" ng-controller="BillingCycleCtrl as BillingCycleCtrl">
         <ul class="nav nav-tabs">
-            <li>
+            <li ng-if="BillingCycleCtrl.tabList">
                 <a href data-target="#tabList" data-toggle="tab">
                     <i class="fa fa-bars"></i> All
                 </a>
             </li>
-            <li>
+            <li ng-class="{active: BillingCycleCtrl.tabAdd}" ng-if="BillingCycleCtrl.tabAdd">
                 <a href data-target="#tabAdd" data-toggle="tab">
                     <i class="fa fa-plus"></i> Add
                 </a>
             </li>
-            <li>
+            <li ng-class="{active: BillingCycleCtrl.tabEdit}" ng-if="BillingCycleCtrl.tabEdit" >
                 <a href data-target="#tabEdit" data-toggle="tab">
                     <i class="fa fa-pencil"></i> Edit
                 </a>
             </li>
-            <li>
+            <li ng-class="{active: BillingCycleCtrl.tabDelete}" ng-if="BillingCycleCtrl.tabDelete">
                 <a href data-target="#tabDelete" data-toggle="tab">
                     <i class="fa fa-trash-o"></i> Delete
                 </a>
             </li>                       
         </ul>
         <div class="tab-content">
-            <div class="tab-pane" id="tabList" ng-include="'billingCycle/list.html'"></div>
-            <div class="tab-pane" id="tabAdd" ng-include="'billingCycle/form.html'"></div>
-            <div class="tab-pane" id="tabEdit" ng-include="'billingCycle/form.html'"></div>
-            <div class="tab-pane" id="tabDelete" ng-include="'billingCycle/form.html'"></div>
+            <div class="tab-pane" id="tabList" ng-include="'billingCycle/list.html'" ng-if="BillingCycleCtrl.tabList"></div>
+            <div class="tab-pane" id="tabAdd" ng-include="'billingCycle/form.html'" ng-if="BillingCycleCtrl.tabAdd"></div>
+            <div class="tab-pane" id="tabEdit" ng-include="'billingCycle/form.html'" ng-if="BillingCycleCtrl.tabEdit"></div>
+            <div class="tab-pane" id="tabDelete" ng-include="'billingCycle/form.html'" ng-if="BillingCycleCtrl.tabDelete"></div>
         </div>
     </div>
 </section>
