@@ -3,22 +3,22 @@
 <section class="content">
     <div class="nav-tabs-custom" ng-controller="BillingCycleCtrl as bcController">
         <ul class="nav nav-tabs">
-            <li ng-if="bcController.tabList">
+            <li ng-if="bcController.tabList" ng-class="active: bcController.tabList">
                 <a href data-target="#tabList" data-toggle="tab">
                     <i class="fa fa-bars"></i> All
                 </a>
             </li>
-            <li ng-class="{active: bcController.tabAdd}" ng-if="bcController.tabAdd">
+            <li ng-if="bcController.tabAdd" ng-class="active: bcController.tabAdd">
                 <a href data-target="#tabAdd" data-toggle="tab">
                     <i class="fa fa-plus"></i> Add
                 </a>
             </li>
-            <li ng-class="{active: bcController.tabEdit}" ng-if="bcController.tabEdit" >
+            <li ng-if="bcController.tabEdit" ng-class="active: bcController.tabEdit">
                 <a href data-target="#tabEdit" data-toggle="tab">
                     <i class="fa fa-pencil"></i> Edit
                 </a>
             </li>
-            <li ng-class="{active: bcController.tabDelete}" ng-if="bcController.tabDelete">
+            <li ng-if="bcController.tabDelete" ng-class="active: bcController.tabDelete">
                 <a href data-target="#tabDelete" data-toggle="tab">
                     <i class="fa fa-trash-o"></i> Delete
                 </a>

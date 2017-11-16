@@ -4,14 +4,26 @@
             <h3 class="box-title">Cycle</h3>
         </div>
         <div class="box-body">
-            <field id="name" label="Name" grid="12 6 4 4" placeholder="Cycle name" type="text" model="bcController.billingCycle.name"></field>
-            <field id="month" label="Month" grid="12 6 4 4" placeholder="Cycle month" type="number" model="bcController.billingCycle.month"></field>
-            <field id="year" label="Year" grid="12 6 4 4" placeholder="Cycle year" type="number" model="bcController.billingCycle.year"></field>
+            <field id="name" label="Name" grid="12 6 4 4" placeholder="Cycle name" type="text" model="bcController.billingCycle.name" readonly="bcController.tabDelete"></field>
+            <field id="month" label="Month" grid="12 6 4 4" placeholder="Cycle month" type="number" model="bcController.billingCycle.month" readonly="bcController.tabDelete"></field>
+            <field id="year" label="Year" grid="12 6 4 4" placeholder="Cycle year" type="number" model="bcController.billingCycle.year" readonly="bcController.tabDelete"></field>
+            <div class="col-xs-12 col-sm-6">
+                <fieldset>
+                    <legend>Credits</legend>
+                    <div ng-include="'billingCycle/creditList.html'"></div>
+                </fieldset>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <fieldset>
+                    <legend>Debts</legend>
+                    <div ng-include="'billingCycle/debtList.html'"></div>
+                </fieldset>
+            </div>            
         </div>
         <div class="box-footer">
             <button class="btn btn-primary" ng-click="bcController.create()" ng-if="bcController.tabAdd">Add</button>
-            <button class="btn btn-info" ng-if="bcController.tabEdit">Edit</button>
-            <button class="btn btn-danger" ng-if="bcController.tabDelete">Delete</button>
+            <button class="btn btn-info" ng-click="bcController.update()" ng-if="bcController.tabEdit">Edit</button>
+            <button class="btn btn-danger" ng-click="bcController.delete()" ng-if="bcController.tabDelete">Delete</button>
             <button class="btn btn-default" ng-click="bcController.refresh()">Cancel</button>
         </div>
     </div>
