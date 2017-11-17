@@ -7,6 +7,14 @@
                 <field id="month" label="Month" grid="12 6 4 4" placeholder="Cycle month" type="number" model="bcController.billingCycle.month" readonly="bcController.tabDelete"></field>
                 <field id="year" label="Year" grid="12 6 4 4" placeholder="Cycle year" type="number" model="bcController.billingCycle.year" readonly="bcController.tabDelete"></field>
             </fieldset>
+
+            <div class="col-xs-12">
+                <fieldset>
+                    <legend>Resumos</legend>
+                    <div ng-include="'billingCycle/summary.html'"></div>
+                </fieldset>
+            </div>
+
             <div class="col-xs-12 col-sm-6">
                 <fieldset>
                     <legend>Credits</legend>

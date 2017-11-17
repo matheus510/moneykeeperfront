@@ -13,7 +13,7 @@
                     <input type="text" ng-model="debt.name" class="form-control" placeholder="Debt name" ng-readonly="bcController.tabDelete">
                 </td>
                 <td>
-                    <input type="text" ng-model="debt.value" class="form-control" placeholder="Debt value" ng-readonly="bcController.tabDelete">
+                    <input type="number" ng-change="bcController.calculateValues()" ng-model="debt.value" class="form-control" placeholder="Debt value" ng-readonly="bcController.tabDelete">
                 </td>
                 <td class="table-actions">
                     <button class="btn btn-success" ng-click="bcController.addDebt($index)" ng-class="{disabled: bcController.tabDelete}">

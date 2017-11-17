@@ -17,6 +17,9 @@
                 tabs.show(vm, {tabList: true, tabAdd: true})
                 vm.billingCycle = {credits: [{}], debts: [{}]}
                 vm.billingCycles = res.data
+                vm.calculateValues()
+                // TODO tabs selection 
+                // tabs.show(vm, {tabList: true, tabCreate: true})
             })
         }
 
@@ -60,11 +63,13 @@
 
         vm.cloneCredit = function(index, name, value) {
             vm.billingCycle.credits.splice(index + 1, 0, {name, value})
+            vm.calculateValues()
         }
 
         vm.deleteCredit = function(index) {
             if(vm.billingCycle.credits.length > 1) {
                 vm.billingCycle.credits.splice(index, 1)
+                vm.calculateValues()
             }
         }
 
@@ -74,26 +79,49 @@
 
         vm.cloneDebt = function(index, name, value) {
             vm.billingCycle.debts.splice(index + 1, 0, {name, value})
+            vm.calculateValues()
         }
 
         vm.deleteDebt = function(index) {
             if(vm.billingCycle.debts.length > 1) {
                 vm.billingCycle.debts.splice(index, 1)
+                vm.calculateValues()
             }
         }
-
-
         // credit/debt related functions _ end
+
+        // credit/debt SUMMARY related functions
+        
+        vm.calculateValues = function () {
+            vm.credit = 0
+            vm.debt = 0
+
+            if(vm.billingCycle) {
+                vm.billingCycle.credits.forEach(function({value}) {
+                    vm.credit += !value || isNaN(value) ? 0 : parseFloat(value)
+                })
+
+                vm.billingCycle.debts.forEach(function({value}) {
+                    vm.debt += !value || isNaN(value) ? 0 : parseFloat(value)
+                })
+            }
+
+            vm.total = vm.credit - vm.debt
+        }
+
+        // credit/debt SUMMARY related functions _ end        
 
         // tab functions
         vm.showTabEdit = function (billingCycle) {
-            tabs.show(vm, {tabEdit: true})
             vm.billingCycle = billingCycle
+            vm.calculateValues()
+            tabs.show(vm, {tabEdit: true})
         }
 
         vm.showTabDelete = function (billingCycle) {
-            tabs.show(vm, {tabDelete: true})
             vm.billingCycle = billingCycle
+            vm.calculateValues()
+            tabs.show(vm, {tabDelete: true})
         }
         // tab functions _ end
 

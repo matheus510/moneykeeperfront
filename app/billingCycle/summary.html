@@ -1,0 +1,5 @@
+<div class="row">
+    <value-box grid="4" color="bg-green" value="R$ {{ bcController.credit | number: 2}}" type="credit"  icon="fa-bank"></value-box>
+    <value-box grid="4" color="bg-red" value="R$ {{ bcController.debt | number: 2}}" type="debt" icon="fa-credit-card"></value-box>
+    <value-box grid="4" color="bg-blue" value="R$ {{ bcController.total | number: 2}}" type="balance" icon="fa-money"></value-box>
+</div>
