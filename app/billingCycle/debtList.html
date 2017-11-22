@@ -16,13 +16,13 @@
                     <input type="number" ng-change="bcController.calculateValues()" ng-model="debt.value" class="form-control" placeholder="Debt value" ng-readonly="bcController.tabDelete">
                 </td>
                 <td class="table-actions">
-                    <button class="btn btn-success" ng-click="bcController.addDebt($index)" ng-class="{disabled: bcController.tabDelete}">
+                    <button class="btn btn-success" ng-click="bcController.addDebt($index)" ng-disabled="bcController.tabDelete">
                         <i class="fa fa-plus"></i>
                     </button>
-                    <button class="btn btn-warning" ng-click="bcController.cloneDebt($index, debt.name, debt.value)">
+                    <button class="btn btn-warning" ng-click="bcController.cloneDebt($index, debt.name, debt.value)" ng-disabled="bcController.tabDelete">
                         <i class="fa fa-clone"></i>
                     </button>
-                    <button class="btn btn-danger" ng-click="bcController.deleteDebt($index)">
+                    <button class="btn btn-danger" ng-click="bcController.deleteDebt($index)" ng-disabled="bcController.tabDelete">
                         <i class="fa fa-trash-o"></i>
                     </button>
                 </td>                                
